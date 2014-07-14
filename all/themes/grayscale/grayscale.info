@@ -2,3 +2,16 @@ name = Grayscale
 core = 7.x
 engine = phptemplate
 stylesheets[all][] = css/style.css
+
+; Default regions
+regions[page_top] = Page Top
+regions[header] = Header
+regions[highlight] = Highlight
+regions[help] = Help
+regions[content] = Content
+regions[sidebar_first] = Sidebar First
+regions[sidebar_second] = Sidebar Second
+regions[footer] = Footer
+regions[page_bottom] = Page Bottom
+
+; My custom regions
