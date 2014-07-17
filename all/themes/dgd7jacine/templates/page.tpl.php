@@ -10,7 +10,7 @@
  *
  * Customizations:
  *  - Most of the markup and many of the variables have been changed.
- *  - In dgd7.info we:
+ *  - In dgd7jacine.info we:
  *    - Added a couple of new regions, which are printed here.
  *    - Specified that we do not support the $logo variable, so it has been
  *     deleted from this file.

@@ -8,7 +8,7 @@
  */
 
 // Make the theme path available.
-$path = drupal_get_path('theme', 'dgd7');
+$path = drupal_get_path('theme', 'dgd7jacine');
 ?>
 <!DOCTYPE html>
 <html lang="<?php print $language->language; ?>" dir="<?php print $language_rtl ? 'rtl' : 'ltr' ; ?>">

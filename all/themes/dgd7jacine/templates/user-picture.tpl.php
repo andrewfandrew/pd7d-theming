@@ -5,10 +5,10 @@
  *
  * @see http://api.drupal.org/api/drupal/modules--user--user-picture.tpl.php/7
  * @see template_preprocess_user_picture()
- * @see dgd7_preprocess_user_picture()
+ * @see dgd7jacine_preprocess_user_picture()
  *
  * Customizations:
- * - In dgd7_preprocess_user_picture(), we added a custom variable containing
+ * - In dgd7jacine_preprocess_user_picture(), we added a custom variable containing
  *   a link to the edit the user's profile if the current user his/her own
  *   picture. This is covered on page 320.
  */

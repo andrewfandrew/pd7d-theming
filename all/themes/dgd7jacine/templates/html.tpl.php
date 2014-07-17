@@ -5,11 +5,11 @@
  *
  * @see http://api.drupal.org/api/drupal/modules--system--html.tpl.php/7
  * @see template_preprocess_html().
- * @see dgd7_preprocess_html().
+ * @see dgd7jacine_preprocess_html().
  * @see template_process_html().
  *
  * Customizations:
- * - In a preprocess function called dgd7_preprocess_html() in template.php
+ * - In a preprocess function called dgd7jacine_preprocess_html() in template.php
  *   (see code above) we created:
  *     - The variable $doctype, which we use below in order to use the
  *       HTML5+RDFa 1.1 doctype when the RDF module is enabled, and the plain

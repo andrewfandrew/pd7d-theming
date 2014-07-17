@@ -5,7 +5,7 @@
  *
  * http://api.drupal.org/api/drupal/modules--field--theme--field.tpl.php/7
  * @see template_preprocess_field()
- * @see dgd7_preprocess_field()
+ * @see dgd7jacine_preprocess_field()
  * @see theme_field()
  *
  * Customizations:
