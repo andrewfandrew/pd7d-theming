@@ -11,7 +11,7 @@
  * template file, which is located in templates/html.tpl.php of this theme.
  * Using drupal_css_css() is covered on pages 344-345.
  */
-function dgd7_preprocess_html(&$vars) {
+function dgd7jacine_preprocess_html(&$vars) {
   // Unfortunately, the XHTML+RDFa 1.0 doctype is hardcoded. We don't want an
   // XHMTL doctype and the RDFa version is old. The following code changes it
   // to HTML+RDFa 1.1 when the RDF module is enabled, and a plain jane HTML5
@@ -45,7 +45,7 @@ function dgd7_preprocess_html(&$vars) {
   
   // Create a variable containing the path to the theme. We'll use this in
   // in html.tpl.php.
-  $vars['path'] = drupal_get_path('theme', 'dgd7');
+  $vars['path'] = drupal_get_path('theme', 'dgd7jacine');
 
   // Add the regular theme stylesheets.
   // This is done here as opposed to using the .info file so that we can control
@@ -103,7 +103,7 @@ function dgd7_preprocess_html(&$vars) {
  * core default, located in modules/system/region.tpl.php isbeing used. This
  * code is covered on pages 318-319.
  */
-function dgd7_preprocess_region(&$vars) {
+function dgd7jacine_preprocess_region(&$vars) {
   $region = $vars['region'];
 
   // Add an "outer" class to the darker regions.
@@ -121,7 +121,7 @@ function dgd7_preprocess_region(&$vars) {
  * $title_attributes_array is covered along with global template variables on
  * pages 296-298.
  */
-function dgd7_preprocess_block(&$vars) {
+function dgd7jacine_preprocess_block(&$vars) {
   // Give the title a decent class.
   $vars['title_attributes_array']['class'][] = 'block-title';
 }
@@ -134,7 +134,7 @@ function dgd7_preprocess_block(&$vars) {
  * this template, so the core default, located in modules/block/block.tpl.php
  * is being used. This example is covered on pages 319-320.
  */
-function dgd7_preprocess_node(&$vars) {
+function dgd7jacine_preprocess_node(&$vars) {
   // Give node titles decent classes.
   $vars['title_attributes_array']['class'][] = 'node-title';
 
@@ -158,7 +158,7 @@ function dgd7_preprocess_node(&$vars) {
  * The changes made in this function affect the variables for the
  * field.tpl.php template file and theme_field() where used.
  */
-function dgd7_preprocess_field(&$vars) {
+function dgd7jacine_preprocess_field(&$vars) {
   // If the view mode is "full" use <h2> for the field labels. Otherwise, assume
   // a teaser or more compact view mode is being displayed, and use <h3>. This
   // may not always be 100% accurate, but it's definitely better than the
@@ -201,7 +201,7 @@ function dgd7_preprocess_field(&$vars) {
  * Implements template_preprocess_user_picture().
  * - Add "change picture" link to be placed underneath the user image.
  */
-function dgd7_preprocess_user_picture(&$vars) {
+function dgd7jacine_preprocess_user_picture(&$vars) {
   // Create a variable with an empty string to prevent PHP notices when
   // attempting to print the variable.
   $vars['edit_picture'] = '';
@@ -222,7 +222,7 @@ function dgd7_preprocess_user_picture(&$vars) {
 /**
  * Implements template_process_page().
  */
-function dgd7_process_page(&$vars) {
+function dgd7jacine_process_page(&$vars) {
   // Prevent variables we moved to render arrays from printing twice or throwing
   // PHP notice errors. This is only necessary if these variables still exist in
   // the page.tpl.php file, which is common when inheriting a template from a
@@ -243,7 +243,7 @@ function dgd7_process_page(&$vars) {
  * template_process_html() using the function drupal_get_html_head(). Here we
  * add 2 <meta>, <link> tag and simplify the <meta charset />.
  */
-function dgd7_html_head_alter(&$head_elements) {
+function dgd7jacine_html_head_alter(&$head_elements) {
   // Simplify the meta charset declaration.
   $head_elements['system_meta_content_type']['#attributes'] = array(
     'charset' => 'utf-8',
@@ -263,7 +263,7 @@ function dgd7_html_head_alter(&$head_elements) {
  * issue is fixed, we can remove the stylesheets by implementing
  * hook_css_alter(), which works properly.
  */
-function dgd7_css_alter(&$css) {
+function dgd7jacine_css_alter(&$css) {
   unset(
     $css['modules/system/system.theme.css'],
     $css['modules/system/system.menus.css'],
@@ -277,7 +277,7 @@ function dgd7_css_alter(&$css) {
  * hook_page_alter() allows us to control the contents the $page render array.
  * This array contains populated theme regions and is printed in page.tpl.php.
  */
-function dgd7_page_alter(&$page) {
+function dgd7jacine_page_alter(&$page) {
   // Remove the block template wrapper from the main content block.
   // The reason we don't use unset() is because #theme_wrappers is an array that
   // can contain multiple values. Since other modules can potentially add to
@@ -302,7 +302,7 @@ function dgd7_page_alter(&$page) {
   // because the $breadcrumb variable is created during
   // template_process_page() and printed in page.tpl.php. The variable needs to
   // be removed and/or emptied in a process function. We've done this here in
-  // dgd7_process_page().
+  // dgd7jacine_process_page().
   $page['footer']['breadcrumbs'] = array(
     '#type' => 'container',
     '#attributes' => array('class' => array('breadcrumb-wrapper')),
@@ -320,7 +320,7 @@ function dgd7_page_alter(&$page) {
   // because the $messages variable is created during
   // template_process_page() and printed in page.tpl.php. The variable needs to
   // be removed and/or emptied in a process function. We've done this here in
-  // dgd7_process_page().
+  // dgd7jacine_process_page().
   if ($page['#show_messages']) {
     $page['help']['messages'] = array(
       '#markup' => theme('status_messages'),
@@ -340,7 +340,7 @@ function dgd7_page_alter(&$page) {
  * page. Note: This specific implementation might be better off in a module
  * because it does not necessarily need to be theme-specific.
  */
-function dgd7_menu_local_tasks_alter(&$data, $router_item, $root_path) {
+function dgd7jacine_menu_local_tasks_alter(&$data, $router_item, $root_path) {
   // Add <span class="icon"/> inside action links.
   foreach ($data['actions']['output'] as $key => $link) {
     // Set the link to allow a title with HTML in it.
@@ -366,7 +366,7 @@ function dgd7_menu_local_tasks_alter(&$data, $router_item, $root_path) {
 /**
  * Implements hook_form_ID_alter().
  */
-function dgd7_form_comment_form_alter(&$form, &$form_state) {
+function dgd7jacine_form_comment_form_alter(&$form, &$form_state) {
   // Injects a wrapper <div> around the comment notification radio options with
   // the "container-inline" class which automatically inlines form elements
   // inside it.
@@ -388,7 +388,7 @@ function dgd7_form_comment_form_alter(&$form, &$form_state) {
  * Added: <span class="icon"> before links on instances of theme_links()
  * used within nodes.
  */
-function dgd7_links__node($variables) {
+function dgd7jacine_links__node($variables) {
   global $language_url;
 
   $links = $variables['links'];
@@ -478,7 +478,7 @@ function dgd7_links__node($variables) {
  *   that's all there is. Here we only return output when there is more
  *   than one result.
  */
-function dgd7_breadcrumb($variables) {
+function dgd7jacine_breadcrumb($variables) {
   $breadcrumb = $variables['breadcrumb'];
   if (count($breadcrumb) > 1) {
     // Provide a navigational heading to give context for breadcrumb links to
@@ -498,7 +498,7 @@ function dgd7_breadcrumb($variables) {
  * - Add a <span class="icon"> so icons can easily be added via a sprite.
  * - Wrap the messages themselves in <div class="content">.
  */
-function dgd7_status_messages($variables) {
+function dgd7jacine_status_messages($variables) {
   $display = $variables['display'];
   $output = '';
 
